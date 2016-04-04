@@ -5,6 +5,7 @@
 var path = require("path");
 var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
+var pathToReactDOM = path.resolve(node_modules, 'react-dom/dist/react-dom-min.js');
 
 var config = {
   entry: [
@@ -12,7 +13,8 @@ var config = {
   ],
   resolve: {
     alias: {
-      'react': pathToReact
+      'react': pathToReact,
+      'react-dom': pathToReactDOM
     }
   },
   output: {
@@ -53,7 +55,7 @@ var config = {
         loader: 'url?limit=100000'
       }
     ],
-    noParse: [pathToReact]
+    noParse: [pathToReact, pathToReactDOM]
   }
 };
 
